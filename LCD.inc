@@ -84,48 +84,7 @@ LCD_GOTO MACRO X,Y
  
 
     
-LCD_ABRIR_CERRAR_REINICIAR MACRO X
-               
-              IF X==1
-                LCD_GOTO 4,2
-	LCD_DAT 'O'
-	LCD_DAT 'P'
-	LCD_DAT 'E'
-	LCD_DAT 'N'
-	LCD_DAT ' '
-	LCD_DAT 'D'
-	LCD_DAT 'O'
-	LCD_DAT 'O'
-	LCD_DAT 'R'
-	      
-              ENDIF
-	      
-	IF X==2
-                LCD_GOTO 3,2
-	LCD_DAT 'C'
-	LCD_DAT 'L'
-	LCD_DAT 'O'
-	LCD_DAT 'S'
-	LCD_DAT 'E'
-	LCD_DAT 'D'
-	LCD_DAT ' '
-	LCD_DAT 'D'
-	LCD_DAT 'O'
-	LCD_DAT 'O'
-	LCD_DAT 'R'
-	      
-              ENDIF
-	      
-               IF X==3
-	    LCD_CMD 0x01
-	    LCD_GOTO 7,1
-                    LCD_DAT 'U'
-                    LCD_DAT 'G' 
 
-	       
-	ENDIF
-
-ENDM
 
 
 

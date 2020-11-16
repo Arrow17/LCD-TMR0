@@ -1,0 +1,42 @@
+
+
+
+EEPROM_GUARDAR MACRO  DIR , DATE
+             
+             MOVLW DIR
+             MOVWF EEADR 
+             MOVLW DATE
+	     MOVWF EEDATA
+	     BCF EECON1,EEPGD
+	     BCF EECON1,CFGS
+	     BsF EECON1,WREN
+	     BCF INTCON,GIE
+	     MOVLW 0x55
+	     MOVWF EECON2
+	     MOVLW 0x0AA
+	     MOVWF EECON2
+	     BSF EECON1,WR
+	     BSF INTCON,GIE
+	     BTFSS PIR2,EEIF
+	     GOTO $-2
+	     BCF PIR2,EEIF
+	     BCF EECON1,WREN
+ 
+ ENDM
+
+EEPROM_LEER MACRO  DIR
+            
+             MOVLW DIR
+	     MOVWF EEADR
+	     BCF EECON1,EEPGD
+	     BCF EECON1,CFGS
+	     BSF EECON1,RD
+	     MOVF EEDATA,W
+ 
+ 
+ ENDM
+
+
+
+
+
